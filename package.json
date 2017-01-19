@@ -9,7 +9,10 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "vue": "^2.1.0"
+    "axios": "^0.15.3",
+    "mint-ui": "^2.1.0",
+    "vue": "^2.1.0",
+    "vue-online": "^1.1.9"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
