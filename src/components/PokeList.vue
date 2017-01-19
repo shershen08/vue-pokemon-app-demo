@@ -1,5 +1,6 @@
 <template>
   <div class="poke-list">
+        <img class="poke-list__image" v-bind:src="selectedPokemonImage" v-if="selectedPokemonImage">
         <mt-progress :value="progressLevel" :bar-height="5"></mt-progress>
         <mt-index-list>
             <mt-cell :title="pokemon.name" v-for="pokemon in pokemons">
@@ -28,13 +29,21 @@ export default {
   data () {
     return {
       pokemons: [],
-      progressLevel: 0
+      progressLevel: 0,
+      selectedPokemonImage:''
     }
   },
-  methods : {
-     
+   methods : {
+      showPokemonDetails : function(itemData){
+          this.progressLevel = 0;
+          axios.get(itemData.url).then((item) => {
+            this.selectedPokemonImage = item.data.sprites.front_default;
+            this.progressLevel = 100;
+        })
+      }
   },
   mounted : function(){
+      this.progressLevel = 30;
       axios.get('http://pokeapi.co/api/v2/pokemon/').then((list) => {
           this.pokemons = list.data.results;
           this.progressLevel = 80;
@@ -45,5 +54,7 @@ export default {
 
 
 <style scoped>
-
+    .poke-list__image {
+        height: 200px;
+    }
 </style>
