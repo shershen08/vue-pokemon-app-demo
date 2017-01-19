@@ -1,8 +1,15 @@
 <template>
-  <header></header>
+  <mt-header fixed :title="title"></mt-header>
 </template>
 
 <script>
+
+import Vue from 'vue';
+import Mint from 'mint-ui';
+Vue.use(Mint);
+
+import { Header } from 'mint-ui';
+Vue.component(Header.name, Header);
 
 
 export default {
