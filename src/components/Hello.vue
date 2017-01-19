@@ -1,21 +1,22 @@
 <template>
   <div class="hello">
+  <nav-bar/>
    <poke-list></poke-list>
   </div>
 </template>
 
 <script>
 import PokeList from './PokeList';
+import NavBar from './NavBar';
 
 export default {
   name: 'hello',
   data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+    return {}
   },
   components : {
-    'poke-list' : PokeList
+    'poke-list' : PokeList,
+    'nav-bar' : NavBar
   }
 }
 </script>
