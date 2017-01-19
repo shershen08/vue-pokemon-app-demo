@@ -1,5 +1,8 @@
 <template>
-  <mt-header fixed :title="title"></mt-header>
+    <header>
+        <OfflineIndicator></OfflineIndicator>
+        <mt-header fixed :title="title"></mt-header>
+    </header>
 </template>
 
 <script>
@@ -11,6 +14,7 @@ Vue.use(Mint);
 import { Header } from 'mint-ui';
 Vue.component(Header.name, Header);
 
+import { OfflineIndicator } from 'vue-online'
 
 export default {
   name: 'nav-bar',
@@ -18,6 +22,9 @@ export default {
     return {
       title: 'Listing pokemons'
     }
+  },
+  components :{
+      OfflineIndicator
   }
 }
 </script>
